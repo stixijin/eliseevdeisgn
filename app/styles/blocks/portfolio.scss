@@ -1,0 +1,80 @@
+.swiper {
+    overflow: visible;
+}
+
+.section_portfolio {
+    overflow: visible;
+}
+
+.porfolio__img {
+    height: 480px;
+    width: auto;
+}
+
+
+.swiper-slide{ 
+width: auto !important;
+}
+
+.swiper-slide:hover::after {
+    opacity: 0.64;
+    transition: opacity 0.5s;
+}
+
+.swiper-slide::after {
+    opacity: 0;
+    transition: opacity 0.5s;
+    content: '';
+    background: url('../../images/dist/zoom.svg') center/contain no-repeat;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%; 
+    height: 40%;
+    width: 40%;
+    pointer-events: none;
+}
+
+.case__item {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.porfolio__body {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.case__head {
+    display: grid;
+    gap: 24px;
+}
+
+.case__links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.case__title .poly {
+    stroke: $primary40;
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+    display: none;
+    @media (min-width:744px) {
+        display: block;
+    }
+}
+
+.case__title {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.buttonPrimary_fill .button_icon {
+    stroke: $white;
+}

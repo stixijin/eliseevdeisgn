@@ -22,6 +22,10 @@ import postCss       from 'gulp-postcss'
 import cssnano       from 'cssnano'
 import autoprefixer  from 'autoprefixer'
 import imagemin      from 'gulp-imagemin'
+import optipng      from 'imagemin-optipng'
+import mozjpeg      from 'imagemin-mozjpeg'
+import svgo      from 'imagemin-svgo'
+import webp      from 'gulp-webp'
 import changed       from 'gulp-changed'
 import concat        from 'gulp-concat'
 import rsync         from 'gulp-rsync'
@@ -81,7 +85,7 @@ function scripts() {
 }
 
 function styles() {
-	return src([`app/styles/${preprocessor}/*.*`, `!app/styles/${preprocessor}/_*.*`])
+	return src([`app/styles/*.*`, `!app/styles/_*.*`])
 		.pipe(eval(`${preprocessor}glob`)())
 		.pipe(eval(preprocessor)({ 'include css': true }))
 		.pipe(postCss([
@@ -97,6 +101,7 @@ function images() {
 	return src(['app/images/src/**/*'])
 		.pipe(changed('app/images/dist'))
 		.pipe(imagemin())
+		.pipe(webp())
 		.pipe(dest('app/images/dist'))
 		.pipe(browserSync.stream())
 }
@@ -125,8 +130,8 @@ function deploy() {
 	return src('dist/')
 		.pipe(rsync({
 			root: 'dist/',
-			hostname: 'username@yousite.com',
-			destination: 'yousite/public_html/',
+			hostname: 'nikvelis@eliseevdeisgn.ru',
+			destination: 'eliseevdesign_ru/public_html/',
 			clean: true, // Mirror copy with file deletion
 			include: [/* '*.htaccess' */], // Included files to deploy,
 			exclude: [ '**/Thumbs.db', '**/*.DS_Store' ],
@@ -138,7 +143,7 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(`app/styles/${preprocessor}/**/*`, { usePolling: true }, styles)
+	watch(`app/styles/**/*`, { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch('app/images/src/**/*', { usePolling: true }, images)
 	watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
@@ -148,4 +153,4 @@ export { scripts, styles, images, deploy }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, buildcopy, buildhtml)
 
-export default series(scripts, styles, images, parallel(browsersync, startwatch))
+export default series(scripts, styles, parallel(browsersync, startwatch))

@@ -1,0 +1,23 @@
+.plans__actions {
+    display: flex;
+    gap:16px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    width: 100%;
+    @media (min-width: 568px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+    } 
+}
+
+.container_plans {
+    padding-bottom: 24px;
+}
+
+.plan__body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}

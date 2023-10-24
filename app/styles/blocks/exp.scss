@@ -1,0 +1,187 @@
+.exp__item {
+    width: 100%;
+    background: $surfacePrimary10-56;
+    color: $white;
+    padding: 12px 8px 24px 8px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: calc($radiusModule*3);
+}
+
+.exp__head {
+    border-radius: calc($radiusModule*2);
+    padding: 8px 12px;
+    background: $surfacePrimary40-64;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    @media (min-width: 568px) {
+        gap: 24px;
+        padding: 12px;
+        flex-direction: row;
+    }
+    @media (min-width: 744px) {
+        padding: 16px 16px 12px 16px;
+    }
+}
+
+.exp__body {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    @media (min-width: 744px) {
+        flex-direction: row;
+        padding-left: 0px;
+        gap: 24px;
+    }
+}
+
+.exp__post {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+}
+
+.exp__company {
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid $white;
+    text-transform: uppercase;
+    @media (min-width: 568px) {
+        padding-right: 24px;
+        padding-bottom: 4px;
+        border-bottom: none;
+        border-right: 1px solid $white;
+    }
+    @media (min-width: 744px) {
+        width: 192px;
+    }
+}
+
+
+.exp__siteCompany {
+    border-radius: calc($radiusModule);
+    border: 1px solid $white;
+    display: flex;
+    gap: 12px;
+    width: fit-content;
+    padding: 2px 16px 2px 4px;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-decoration: none;
+    transition: border 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.exp__siteCompany:hover {
+    color: $primary70;
+    transition: border 0.4s ease-in-out, color 0.4s ease-in-out;
+    border: 1px solid $primary70;
+}
+
+.exp__logoCompany {
+    height: fit-content;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+.exp__siteText {
+    padding-bottom: 4px;
+}
+
+.exp__nameRec {
+    font-size: 14px;
+}
+
+.exp__aboutCompany {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    gap: 24px;
+    align-items: center;
+    border-bottom: 1px solid $white;
+    @media (min-width: 744px) {
+        padding-right: 8px;
+        padding-left: 12px;
+        min-width: 208px;
+        max-width: 208px;
+        border-bottom: none;
+        border-right: 1px solid $white;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+}
+
+.exp__rec {
+    color: $white;
+    text-decoration: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    transition: color 0.4s ease-in-out;
+}
+
+.exp__rec:hover {
+    color: $primary70;
+    transition: color 0.4s ease-in-out;
+}
+
+.exp__recList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#exp {
+    z-index: 100;
+    background: url(../../images/dist/HERO/Desctop/bg-1.webp) no-repeat center center / cover;
+    @media (min-width: 744px) {
+        background: url(../../images/dist/HERO/Desctop/bg-1.webp) no-repeat center center / cover;
+    }
+}
+
+.divider {
+    background: $white;
+    width: 100%;
+    height: 1px;
+    @media (min-width: 744px) {
+        width: 1px;
+        height: 100%;
+    }
+}
+
+
+.exp__year {
+    color: $white;
+    border: 1px solid $white;
+    width: fit-content;
+    padding: 4px 12px 8px 12px; 
+    border-radius: 10px;
+    font-size: 24px;
+    line-height: 32px;
+    @media (min-width: 568px) {
+        padding: 8px 24px 12px 24px; 
+        border-radius: 10px;
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+.exp__list {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: flex-start;
+}
